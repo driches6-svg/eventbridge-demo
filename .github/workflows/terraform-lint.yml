@@ -22,16 +22,16 @@ jobs:
         uses: terraform-linters/setup-tflint@v4
 
       - name: Init (no backend)
-        working-directory: terraform
+        working-directory: eventbridge-demo/envs/dev/
         run: terraform init -backend=false
 
       - name: Format check
         run: terraform fmt -check -recursive
 
       - name: Validate
-        working-directory: terraform
+        working-directory: eventbridge-demo/envs/dev/
         run: terraform validate
 
       - name: TFLint
-        working-directory: terraform
+        working-directory: eventbridge-demo/envs/dev/
         run: tflint -f compact
